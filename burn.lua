@@ -43,8 +43,9 @@ kernel.fragment =
     P_COLOR vec4 FragmentKernel( P_UV vec2 texCoord )
     {
         P_COLOR vec4 color = texture2D( CoronaSampler0, texCoord );
+        P_COLOR vec4 object = texture2D( CoronaSampler0, texCoord );
         P_COLOR vec4 tex = texture2D( CoronaSampler1, texCoord );
-        P_COLOR vec4 tex2 = texture2D( CoronaSampler1, texCoord );
+
 
         P_COLOR float noise = (tex.r + tex.g + tex.b)/3.0;
         P_COLOR float thickness = 0.05;
@@ -68,7 +69,7 @@ kernel.fragment =
           color.a = clamp(color.a, 0.0, 1.0);
         }
         
-        color.a *= tex2.a;
+        color.a *= object.a;
         
         return CoronaColorScale(color);
       }

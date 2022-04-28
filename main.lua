@@ -1,3 +1,4 @@
+local bg = display.newRect(display.contentCenterX, display.contentCenterY, display.contentWidth, display.contentHeight)
 local pirate = display.newImageRect("pirate.png", 200, 200)
 
 pirate.x, pirate.y = display.contentCenterX, display.contentCenterY
